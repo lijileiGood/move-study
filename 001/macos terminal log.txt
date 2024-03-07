@@ -1,0 +1,1546 @@
+(base) ➜  workspace git clone https://github.com/move-language/move.git
+Cloning into 'move'...
+remote: Enumerating objects: 225182, done.
+remote: Counting objects: 100% (225182/225182), done.
+remote: Compressing objects: 100% (62364/62364), done.
+remote: Total 225182 (delta 158421), reused 224705 (delta 158315), pack-reused 0
+Receiving objects: 100% (225182/225182), 83.80 MiB | 7.04 MiB/s, done.
+Resolving deltas: 100% (158421/158421), done.
+(base) ➜  workspace cd move
+(base) ➜  move git:(main) ./scripts/dev_setup.sh -ypt
+Welcome to Move!
+
+This script will download and install the necessary dependencies needed to
+build and run Move.
+
+Based on your selection, these tools will be included:
+Build tools (since -t or no option was provided):
+  * Rust (and the necessary components, e.g. rust-fmt, clippy)
+  * CMake
+  * Clang
+  * pkg-config
+  * libssl-dev
+  * if linux, gcc-powerpc-linux-gnu
+  * NodeJS / NPM
+Move prover tools (since -y was provided):
+  * z3
+  * cvc5
+  * dotnet
+  * boogie
+Moreover, ~/.profile will be updated (since -p was provided).
+If you'd prefer to install these dependencies yourself, please exit this script
+now with Ctrl-C.
+Proceed with installing necessary dependencies? (y/N) > y
+curl is already installed
+Installing cmake.
+Running `brew update --auto-update`...
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+appwrite                  kubeshark                 mdsh                      npm-check-updates         scala@3.3
+bpftop                    liborigin                 mmdbinspect               pkl                       taskopen
+edgevpn                   libsql                    nmail                     prjtrellis                wstunnel
+==> New Casks
+jan
+
+You have 37 outdated formulae and 1 outdated cask installed.
+
+Warning: Treating cmake as a formula. For the cask, use homebrew/cask/cmake
+==> Fetching cmake
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/cmake-3.28.3.arm64_sonoma.bottle.tar.gz
+########################################################################################################################## 100.0%
+==> Pouring cmake-3.28.3.arm64_sonoma.bottle.tar.gz
+==> Caveats
+To install the CMake documentation, run:
+  brew install cmake-docs
+
+Emacs Lisp files have been installed to:
+  /opt/homebrew/share/emacs/site-lisp/cmake
+==> Summary
+🍺  /opt/homebrew/Cellar/cmake/3.28.3: 3,329 files, 54.4MB
+==> Running `brew cleanup cmake`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+clang is already installed
+Installing llvm.
+Error: llvm: the bottle needs the Apple Command Line Tools to be installed.
+  You can install them, if desired, with:
+    xcode-select --install
+
+If you're feeling brave, you can try to install from source with:
+  brew install --build-from-source llvm
+
+It is expected behaviour that most formulae will fail to build from source.
+It is expected behaviour that Homebrew will be buggy and slow when building from source.
+Do not create any issues about failures building from source on Homebrew's GitHub repositories.
+Do not create any issues building from source even if you think this message is unrelated.
+Any opened issues will be immediately closed without response.
+Do not ask for help from Homebrew or its maintainers on social media.
+You may ask for help building from source in Homebrew's discussions but are unlikely to receive a response.
+If building from source fails, try to figure out the problem yourself and submit a fix as a pull request.
+We will review it but may or may not accept it.
+(base) ➜  move git:(main)  brew install --build-from-source llvm
+==> Fetching dependencies for llvm: mpdecimal, openssl@3, readline, sqlite, xz, python@3.12, z3, ninja, pcre2 and swig
+==> Fetching mpdecimal
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/mpdecimal-4.0.0.arm64_sonoma.bottle.1.tar.gz
+########################################################################################################################## 100.0%
+==> Fetching openssl@3
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/openssl%403-3.2.1.arm64_sonoma.bottle.1.tar.gz
+########################################################################################################################## 100.0%
+==> Fetching readline
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/readline-8.2.10.arm64_sonoma.bottle.tar.gz
+########################################################################################################################## 100.0%
+==> Fetching sqlite
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/sqlite-3.45.1.arm64_sonoma.bottle.tar.gz
+########################################################################################################################## 100.0%
+==> Fetching xz
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/xz-5.6.0.arm64_sonoma.bottle.1.tar.gz
+########################################################################################################################## 100.0%
+Error: python@3.12: the bottle needs the Apple Command Line Tools to be installed.
+  You can install them, if desired, with:
+    xcode-select --install
+
+If you're feeling brave, you can try to install from source with:
+  brew install --build-from-source python@3.12
+
+It is expected behaviour that most formulae will fail to build from source.
+It is expected behaviour that Homebrew will be buggy and slow when building from source.
+Do not create any issues about failures building from source on Homebrew's GitHub repositories.
+Do not create any issues building from source even if you think this message is unrelated.
+Any opened issues will be immediately closed without response.
+Do not ask for help from Homebrew or its maintainers on social media.
+You may ask for help building from source in Homebrew's discussions but are unlikely to receive a response.
+If building from source fails, try to figure out the problem yourself and submit a fix as a pull request.
+We will review it but may or may not accept it.
+(base) ➜  move git:(main) brew install --build-from-source python@3.12
+==> Fetching dependencies for python@3.12: mpdecimal, openssl@3, readline, sqlite and xz
+==> Fetching mpdecimal
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/mpdecimal-4.0.0.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/6977cfb311e9d6f2ce89267300f3fefeb0146b2388103663f7ba0220c57e8d43--mpdecimal-4.0.0.arm64_sonoma.bottle.1.tar.gz
+==> Fetching openssl@3
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/openssl%403-3.2.1.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/3129ffc32527c17a202216e064030ac14953f26d0e39c9170f8eb8210ce15e73--openssl@3-3.2.1.arm64_sonoma.bottle.1.tar.gz
+==> Fetching readline
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/readline-8.2.10.arm64_sonoma.bottle.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/b281d6667fbe32b923dabd051fc372369ac95152566955bdbde7d9748335b292--readline-8.2.10.arm64_sonoma.bottle.tar.gz
+==> Fetching sqlite
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/sqlite-3.45.1.arm64_sonoma.bottle.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/fe594c44bf9b9217b0d42739f5f20efaf8e2e16419378697b7c5370615477cf7--sqlite-3.45.1.arm64_sonoma.bottle.tar.gz
+==> Fetching xz
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/xz-5.6.0.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/8105a1e4e6aff3d239857040e215059598546c9cfd410954eba8fc01e976c46b--xz-5.6.0.arm64_sonoma.bottle.1.tar.gz
+==> Fetching python@3.12
+==> Downloading https://raw.githubusercontent.com/Homebrew/homebrew-core/c0fae9c65e8402b096970d9a240f7655b45bfd4e/Formula/p/pytho
+-=O=-                                                                                                               #   #   # #
+
+##O#-
+
+##O=-#   #
+
+^CO#- #     #
+(base) ➜  move git:(main) brew install --build-from-source python@3.12
+Running `brew update --auto-update`...
+==> Fetching dependencies for python@3.12: mpdecimal, openssl@3, readline, sqlite and xz
+==> Fetching mpdecimal
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/mpdecimal-4.0.0.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/6977cfb311e9d6f2ce89267300f3fefeb0146b2388103663f7ba0220c57e8d43--mpdecimal-4.0.0.arm64_sonoma.bottle.1.tar.gz
+==> Fetching openssl@3
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/openssl%403-3.2.1.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/3129ffc32527c17a202216e064030ac14953f26d0e39c9170f8eb8210ce15e73--openssl@3-3.2.1.arm64_sonoma.bottle.1.tar.gz
+==> Fetching readline
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/readline-8.2.10.arm64_sonoma.bottle.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/b281d6667fbe32b923dabd051fc372369ac95152566955bdbde7d9748335b292--readline-8.2.10.arm64_sonoma.bottle.tar.gz
+==> Fetching sqlite
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/sqlite-3.45.1.arm64_sonoma.bottle.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/fe594c44bf9b9217b0d42739f5f20efaf8e2e16419378697b7c5370615477cf7--sqlite-3.45.1.arm64_sonoma.bottle.tar.gz
+==> Fetching xz
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/xz-5.6.0.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/8105a1e4e6aff3d239857040e215059598546c9cfd410954eba8fc01e976c46b--xz-5.6.0.arm64_sonoma.bottle.1.tar.gz
+==> Fetching python@3.12
+==> Downloading https://raw.githubusercontent.com/Homebrew/homebrew-core/c0fae9c65e8402b096970d9a240f7655b45bfd4e/Formula/p/pytho
+curl: (35) Recv failure: Connection reset by peer
+
+Error: python@3.12: Failed to download resource "python@3.12.rb"
+Download failed: https://raw.githubusercontent.com/Homebrew/homebrew-core/c0fae9c65e8402b096970d9a240f7655b45bfd4e/Formula/p/python@3.12.rb
+(base) ➜  move git:(main) brew ls
+==> Formulae
+autoconf		gnupg			libnghttp2		lzo			pinentry
+brotli			gnutls			libpng			m4			pixman
+c-ares			gradle			libtasn1		maven			pkg-config
+ca-certificates		gradle@7		libtiff			mpdecimal		pnpm
+cairo			graphite2		libunistring		nettle			pyenv
+cask			harfbuzz		libusb			node@16			readline
+cmake			icu4c			libuv			npth			sqlite
+coreutils		jansson			libx11			nvm			telnet
+emacs			jpeg-turbo		libxau			openjdk			tree-sitter
+fontconfig		libassuan		libxcb			openjdk@17		unbound
+freetype		libevent		libxdmcp		openldap		xorgproto
+gettext			libgcrypt		libxext			openssl@1.1		xz
+giflib			libgpg-error		libxrender		openssl@3		yarn
+glib			libidn2			little-cms2		p11-kit			zsh-syntax-highlighting
+gmp			libksba			lz4			pcre2			zstd
+
+==> Casks
+android-file-transfer	iterm2			rar
+(base) ➜  move git:(main) python -v
+import _frozen_importlib # frozen
+import _imp # builtin
+import '_thread' # <class '_frozen_importlib.BuiltinImporter'>
+import '_warnings' # <class '_frozen_importlib.BuiltinImporter'>
+import '_weakref' # <class '_frozen_importlib.BuiltinImporter'>
+import '_io' # <class '_frozen_importlib.BuiltinImporter'>
+import 'marshal' # <class '_frozen_importlib.BuiltinImporter'>
+import 'posix' # <class '_frozen_importlib.BuiltinImporter'>
+import '_frozen_importlib_external' # <class '_frozen_importlib.FrozenImporter'>
+# installing zipimport hook
+import 'time' # <class '_frozen_importlib.BuiltinImporter'>
+import 'zipimport' # <class '_frozen_importlib.FrozenImporter'>
+# installed zipimport hook
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/__init__.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/__init__.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/__init__.cpython-39.pyc'
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/codecs.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/codecs.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/codecs.cpython-39.pyc'
+import '_codecs' # <class '_frozen_importlib.BuiltinImporter'>
+import 'codecs' # <_frozen_importlib_external.SourceFileLoader object at 0x102e30490>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/aliases.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/aliases.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/aliases.cpython-39.pyc'
+import 'encodings.aliases' # <_frozen_importlib_external.SourceFileLoader object at 0x102e50a30>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/cp437.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/cp437.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/cp437.cpython-39.pyc'
+import 'encodings.cp437' # <_frozen_importlib_external.SourceFileLoader object at 0x102e50ac0>
+import 'encodings' # <_frozen_importlib_external.SourceFileLoader object at 0x102e30280>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/utf_8.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/utf_8.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/utf_8.cpython-39.pyc'
+import 'encodings.utf_8' # <_frozen_importlib_external.SourceFileLoader object at 0x102e30160>
+import '_signal' # <class '_frozen_importlib.BuiltinImporter'>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/latin_1.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/latin_1.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/encodings/latin_1.cpython-39.pyc'
+import 'encodings.latin_1' # <_frozen_importlib_external.SourceFileLoader object at 0x102e50df0>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/io.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/io.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/io.cpython-39.pyc'
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/abc.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/abc.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/abc.cpython-39.pyc'
+import '_abc' # <class '_frozen_importlib.BuiltinImporter'>
+import 'abc' # <_frozen_importlib_external.SourceFileLoader object at 0x102e6d2e0>
+import 'io' # <_frozen_importlib_external.SourceFileLoader object at 0x102e50fd0>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.cpython-39.pyc'
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/os.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/os.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/os.cpython-39.pyc'
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/stat.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/stat.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/stat.cpython-39.pyc'
+import '_stat' # <class '_frozen_importlib.BuiltinImporter'>
+import 'stat' # <_frozen_importlib_external.SourceFileLoader object at 0x102e8ab80>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_collections_abc.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_collections_abc.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_collections_abc.cpython-39.pyc'
+import '_collections_abc' # <_frozen_importlib_external.SourceFileLoader object at 0x102e8ac10>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/posixpath.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/posixpath.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/posixpath.cpython-39.pyc'
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/genericpath.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/genericpath.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/genericpath.cpython-39.pyc'
+import 'genericpath' # <_frozen_importlib_external.SourceFileLoader object at 0x102ebe280>
+import 'posixpath' # <_frozen_importlib_external.SourceFileLoader object at 0x102e8ab50>
+import 'os' # <_frozen_importlib_external.SourceFileLoader object at 0x102e80280>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_sitebuiltins.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_sitebuiltins.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_sitebuiltins.cpython-39.pyc'
+import '_sitebuiltins' # <_frozen_importlib_external.SourceFileLoader object at 0x102e80b50>
+# /Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_bootlocale.cpython-39.pyc matches /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_bootlocale.py
+# code object from '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/_bootlocale.cpython-39.pyc'
+import '_locale' # <class '_frozen_importlib.BuiltinImporter'>
+import '_bootlocale' # <_frozen_importlib_external.SourceFileLoader object at 0x102ebe730>
+import 'site' # <_frozen_importlib_external.SourceFileLoader object at 0x102e6dac0>
+Python 3.9.6 (default, Nov 10 2023, 13:38:27)
+[Clang 15.0.0 (clang-1500.1.0.2.5)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+# extension module 'readline' loaded from '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/lib-dynload/readline.cpython-39-darwin.so'
+# extension module 'readline' executed from '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/lib-dynload/readline.cpython-39-darwin.so'
+import 'readline' # <_frozen_importlib_external.ExtensionFileLoader object at 0x102ebed90>
+import 'atexit' # <class '_frozen_importlib.BuiltinImporter'>
+# code object from /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/rlcompleter.py
+# created '/Users/leo/Library/Caches/com.apple.python/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/rlcompleter.cpython-39.pyc'
+import 'rlcompleter' # <_frozen_importlib_external.SourceFileLoader object at 0x102ebe6d0>
+>>>
+KeyboardInterrupt
+>>>
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>> exit();
+# clear builtins._
+# clear sys.path
+# clear sys.argv
+# clear sys.ps1
+# clear sys.ps2
+# clear sys.last_type
+# clear sys.last_value
+# clear sys.last_traceback
+# clear sys.path_hooks
+# clear sys.path_importer_cache
+# clear sys.meta_path
+# clear sys.__interactivehook__
+# restore sys.stdin
+# restore sys.stdout
+# restore sys.stderr
+# cleanup[2] removing sys
+# cleanup[2] removing builtins
+# cleanup[2] removing _frozen_importlib
+# cleanup[2] removing _imp
+# cleanup[2] removing _thread
+# cleanup[2] removing _warnings
+# cleanup[2] removing _weakref
+# cleanup[2] removing _io
+# cleanup[2] removing marshal
+# cleanup[2] removing posix
+# cleanup[2] removing _frozen_importlib_external
+# cleanup[2] removing time
+# cleanup[2] removing zipimport
+# destroy zipimport
+# cleanup[2] removing _codecs
+# cleanup[2] removing codecs
+# cleanup[2] removing encodings.aliases
+# cleanup[2] removing encodings.cp437
+# cleanup[2] removing encodings
+# destroy encodings
+# cleanup[2] removing encodings.utf_8
+# cleanup[2] removing _signal
+# cleanup[2] removing encodings.latin_1
+# cleanup[2] removing _abc
+# cleanup[2] removing abc
+# cleanup[2] removing io
+# cleanup[2] removing __main__
+# cleanup[2] removing _stat
+# cleanup[2] removing stat
+# cleanup[2] removing _collections_abc
+# destroy _collections_abc
+# cleanup[2] removing genericpath
+# cleanup[2] removing posixpath
+# cleanup[2] removing os.path
+# cleanup[2] removing os
+# cleanup[2] removing _sitebuiltins
+# cleanup[2] removing _locale
+# cleanup[2] removing _bootlocale
+# destroy _bootlocale
+# cleanup[2] removing site
+# destroy site
+# cleanup[2] removing readline
+# cleanup[2] removing atexit
+# cleanup[2] removing rlcompleter
+# destroy rlcompleter
+# destroy time
+# destroy _abc
+# destroy _sitebuiltins
+# destroy io
+# destroy abc
+# destroy posixpath
+# destroy _stat
+# destroy genericpath
+# destroy os
+# destroy stat
+# destroy _locale
+# destroy atexit
+# destroy __main__
+# cleanup[3] wiping readline
+# cleanup[3] wiping encodings.latin_1
+# cleanup[3] wiping _signal
+# cleanup[3] wiping encodings.utf_8
+# cleanup[3] wiping encodings.cp437
+# cleanup[3] wiping encodings.aliases
+# cleanup[3] wiping codecs
+# cleanup[3] wiping _codecs
+# cleanup[3] wiping _frozen_importlib_external
+# cleanup[3] wiping posix
+# cleanup[3] wiping marshal
+# cleanup[3] wiping _io
+# cleanup[3] wiping _weakref
+# cleanup[3] wiping _warnings
+# cleanup[3] wiping _thread
+# cleanup[3] wiping _imp
+# cleanup[3] wiping _frozen_importlib
+# destroy _frozen_importlib_external
+# destroy _imp
+# destroy _weakref
+# cleanup[3] wiping sys
+# cleanup[3] wiping builtins
+# destroy readline
+# destroy _signal
+# destroy marshal
+# destroy io
+# destroy _warnings
+# destroy _thread
+# destroy posix
+# destroy _frozen_importlib
+# clear sys.audit hooks
+(base) ➜  move git:(main) curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl: (35) Recv failure: Connection reset by peer
+(base) ➜  move git:(main) cargo --version
+zsh: command not found: cargo
+(base) ➜  move git:(main) brew search cargo
+==> Formulae
+cargo-about          cargo-bloat          cargo-deps           cargo-llvm-cov       cargo-sweep          carton
+cargo-all-features   cargo-bundle         cargo-docset         cargo-llvm-lines     cargo-udeps          cdargs
+cargo-audit          cargo-c              cargo-edit           cargo-make           cargo-watch          charge
+cargo-auditable      cargo-crev           cargo-fuzz           cargo-nextest        cargo-zigbuild
+cargo-binstall       cargo-deny           cargo-generate       cargo-outdated       argo
+cargo-binutils       cargo-depgraph       cargo-instruments    cargo-release        cairo ✔
+
+==> Casks
+cardhop
+
+If you meant "cargo" specifically:
+cargo is part of the rust formula:
+  brew install rust
+(base) ➜  move git:(main) brew instll rust
+Error: Unknown command: instll
+(base) ➜  move git:(main) brew install rust
+Running `brew update --auto-update`...
+==> Fetching dependencies for rust: openssl@3, libssh2, libgit2, mpdecimal, readline, sqlite, xz, python@3.12, z3, ninja, pcre2, swig and llvm
+==> Fetching openssl@3
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/openssl%403-3.2.1.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/3129ffc32527c17a202216e064030ac14953f26d0e39c9170f8eb8210ce15e73--openssl@3-3.2.1.arm64_sonoma.bottle.1.tar.gz
+==> Fetching libssh2
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/libssh2-1.11.0_1.arm64_sonoma.bottle.tar.gz
+########################################################################################################################## 100.0%
+==> Fetching libgit2
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/libgit2-1.7.2.arm64_sonoma.bottle.tar.gz
+########################################################################################################################## 100.0%
+==> Fetching mpdecimal
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/mpdecimal-4.0.0.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/6977cfb311e9d6f2ce89267300f3fefeb0146b2388103663f7ba0220c57e8d43--mpdecimal-4.0.0.arm64_sonoma.bottle.1.tar.gz
+==> Fetching readline
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/readline-8.2.10.arm64_sonoma.bottle.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/b281d6667fbe32b923dabd051fc372369ac95152566955bdbde7d9748335b292--readline-8.2.10.arm64_sonoma.bottle.tar.gz
+==> Fetching sqlite
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/sqlite-3.45.1.arm64_sonoma.bottle.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/fe594c44bf9b9217b0d42739f5f20efaf8e2e16419378697b7c5370615477cf7--sqlite-3.45.1.arm64_sonoma.bottle.tar.gz
+==> Fetching xz
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/xz-5.6.0.arm64_sonoma.bottle.1.tar.gz
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/8105a1e4e6aff3d239857040e215059598546c9cfd410954eba8fc01e976c46b--xz-5.6.0.arm64_sonoma.bottle.1.tar.gz
+Error: python@3.12: the bottle needs the Apple Command Line Tools to be installed.
+  You can install them, if desired, with:
+    xcode-select --install
+
+If you're feeling brave, you can try to install from source with:
+  brew install --build-from-source python@3.12
+
+It is expected behaviour that most formulae will fail to build from source.
+It is expected behaviour that Homebrew will be buggy and slow when building from source.
+Do not create any issues about failures building from source on Homebrew's GitHub repositories.
+Do not create any issues building from source even if you think this message is unrelated.
+Any opened issues will be immediately closed without response.
+Do not ask for help from Homebrew or its maintainers on social media.
+You may ask for help building from source in Homebrew's discussions but are unlikely to receive a response.
+If building from source fails, try to figure out the problem yourself and submit a fix as a pull request.
+We will review it but may or may not accept it.
+(base) ➜  move git:(main) xcode-select --install
+xcode-select: note: install requested for command line developer tools
+(base) ➜  move git:(main) brew search python
+==> Formulae
+app-engine-python               python-dateutil                 python-packaging                python-toml
+boost-python3                   python-flit-core                python-pathspec                 python-trove-classifiers
+bpython                         python-gdbm@3.11                python-pluggy                   python-typing-extensions
+cyclonedx-python                python-gdbm@3.12                python-ply                      python-urllib3
+ipython                         python-hatchling                python-psutil                   python-yq
+meson-python                    python-idna                     python-pyparsing                python@3.10
+micropython                     python-jinja                    python-pyproject-hooks          python@3.11
+ptpython                        python-kiwisolver               python-pytz                     python@3.12
+python-argcomplete              python-launcher                 python-requests                 python@3.7
+python-brotli                   python-lsp-server               python-setuptools               python@3.8
+python-build                    python-lxml                     python-setuptools-scm           python@3.9
+python-certifi                  python-mako                     python-sympy                    reorder-python-imports
+python-chardet                  python-markdown                 python-tabulate                 wxpython
+python-charset-normalizer       python-markupsafe               python-tk@3.10                  pythran
+python-click                    python-matplotlib               python-tk@3.11                  jython
+python-cryptography             python-mpmath                   python-tk@3.12                  cython
+python-cycler                   python-networkx                 python-tk@3.9
+
+==> Casks
+mysql-connector-python
+(base) ➜  move git:(main) brew install python@3.12
+Running `brew update --auto-update`...
+Error: python@3.12: the bottle needs the Apple Command Line Tools to be installed.
+  You can install them, if desired, with:
+    xcode-select --install
+
+If you're feeling brave, you can try to install from source with:
+  brew install --build-from-source python@3.12
+
+It is expected behaviour that most formulae will fail to build from source.
+It is expected behaviour that Homebrew will be buggy and slow when building from source.
+Do not create any issues about failures building from source on Homebrew's GitHub repositories.
+Do not create any issues building from source even if you think this message is unrelated.
+Any opened issues will be immediately closed without response.
+Do not ask for help from Homebrew or its maintainers on social media.
+You may ask for help building from source in Homebrew's discussions but are unlikely to receive a response.
+If building from source fails, try to figure out the problem yourself and submit a fix as a pull request.
+We will review it but may or may not accept it.
+(base) ➜  move git:(main)  brew search xcode
+==> Formulae
+xcode-build-server        xcode-kotlin              xcodegen                  xcodes                    coder
+
+==> Casks
+copilot-for-xcode         swiftformat-for-xcode     xcodeclangformat          xcodes                    xscope
+
+If you meant "xcode" specifically:
+Xcode can be installed from the App Store.
+(base) ➜  move git:(main)     xcode-select --install
+xcode-select: note: install requested for command line developer tools
+(base) ➜  move python --version
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+(base) ➜  move python3 --version
+Python 3.11.5
+(base) ➜  move ./scripts/dev_setup.sh -ypt
+Welcome to Move!
+
+This script will download and install the necessary dependencies needed to
+build and run Move.
+
+Based on your selection, these tools will be included:
+Build tools (since -t or no option was provided):
+  * Rust (and the necessary components, e.g. rust-fmt, clippy)
+  * CMake
+  * Clang
+  * pkg-config
+  * libssl-dev
+  * if linux, gcc-powerpc-linux-gnu
+  * NodeJS / NPM
+Move prover tools (since -y was provided):
+  * z3
+  * cvc5
+  * dotnet
+  * boogie
+Moreover, ~/.profile will be updated (since -p was provided).
+If you'd prefer to install these dependencies yourself, please exit this script
+now with Ctrl-C.
+Proceed with installing necessary dependencies? (y/N) > y
+curl is already installed
+cmake is already installed
+clang is already installed
+Installing llvm.
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/api/formula.jws.json
+##O#-  #
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/api/cask.jws.json
+-#O=#   #     #
+Error: No developer tools installed.
+Install the Command Line Tools:
+  xcode-select --install
+
+(base) ➜  move xcode-select --install
+xcode-select: note: install requested for command line developer tools
+(base) ➜  move
+
+==> Fetching gnupg 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/gnupg-2.4.4.arm64_sonoma.bottle.tar.gz 
+########################################################################################################################## 100.0%
+==> Fetching gradle 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/gradle-8.6.arm64_sonoma.bottle.tar.gz 
+########################################################################################################################## 100.0%
+==> Fetching pyenv 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/pyenv-2.3.36.arm64_sonoma.bottle.tar.gz 
+########################################################################################################################## 100.0%
+==> Upgrading openjdk@17 
+  17.0.9 -> 17.0.10  
+ 
+==> Installing dependencies for openjdk@17: libpng, pcre2, gettext, glib, libxdmcp, libxcb, libxext, icu4c and harfbuzz 
+==> Installing openjdk@17 dependency: libpng 
+==> Pouring libpng-1.6.43.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libpng/1.6.43: 27 files, 1.3MB 
+==> Installing openjdk@17 dependency: pcre2 
+==> Pouring pcre2-10.43.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/pcre2/10.43: 234 files, 6.3MB 
+==> Installing openjdk@17 dependency: gettext 
+==> Pouring gettext-0.22.5.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/gettext/0.22.5: 2,043 files, 24.4MB 
+==> Installing openjdk@17 dependency: glib 
+==> Pouring glib-2.78.4.arm64_sonoma.bottle.tar.gz 
+ 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/api/formula.jws.json 
+##O#-  #                                                                                                                         
+🍺  /opt/homebrew/Cellar/glib/2.78.4: 456 files, 22.4MB 
+==> Installing openjdk@17 dependency: libxdmcp 
+==> Pouring libxdmcp-1.1.5.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libxdmcp/1.1.5: 11 files, 136.3KB 
+==> Installing openjdk@17 dependency: libxcb 
+==> Pouring libxcb-1.16.1.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libxcb/1.16.1: 2,462 files, 7.5MB 
+==> Installing openjdk@17 dependency: libxext 
+==> Pouring libxext-1.3.6.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libxext/1.3.6: 87 files, 450.7KB 
+==> Installing openjdk@17 dependency: icu4c 
+==> Pouring icu4c-74.2.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/icu4c/74.2: 270 files, 77.9MB 
+==> Installing openjdk@17 dependency: harfbuzz 
+==> Pouring harfbuzz-8.3.0_1.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/harfbuzz/8.3.0_1: 76 files, 9.5MB 
+==> Installing openjdk@17 
+==> Pouring openjdk@17-17.0.10.arm64_sonoma.bottle.tar.gz 
+==> Caveats 
+For the system Java wrappers to find this JDK, symlink it with 
+  sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk 
+ 
+openjdk@17 is keg-only, which means it was not symlinked into /opt/homebrew, 
+because this is an alternate version of another formula. 
+ 
+If you need to have openjdk@17 first in your PATH, run: 
+  echo 'export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc 
+ 
+For compilers to find openjdk@17 you may need to set: 
+  export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include" 
+==> Summary 
+🍺  /opt/homebrew/Cellar/openjdk@17/17.0.10: 635 files, 304.9MB 
+==> Running `brew cleanup openjdk@17`... 
+Removing: /opt/homebrew/Cellar/openjdk@17/17.0.9... (635 files, 304.9MB) 
+==> Upgrading gradle@7 
+  7.6.3 -> 7.6.4  
+ 
+==> Pouring gradle@7-7.6.4.all.bottle.tar.gz 
+==> Caveats 
+gradle@7 is keg-only, which means it was not symlinked into /opt/homebrew, 
+because this is an alternate version of another formula. 
+ 
+If you need to have gradle@7 first in your PATH, run: 
+  echo 'export PATH="/opt/homebrew/opt/gradle@7/bin:$PATH"' >> ~/.zshrc 
+==> Summary 
+🍺  /opt/homebrew/Cellar/gradle@7/7.6.4: 11,543 files, 272.8MB 
+==> Running `brew cleanup gradle@7`... 
+Removing: /opt/homebrew/Cellar/gradle@7/7.6.3... (11,535 files, 272.4MB) 
+==> Upgrading openjdk 
+  21.0.1 -> 21.0.2  
+ 
+==> Pouring openjdk-21.0.2.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/openjdk/21.0.2: 600 files, 331.2MB 
+==> Running `brew cleanup openjdk`... 
+Removing: /opt/homebrew/Cellar/openjdk/21.0.1... (600 files, 331MB) 
+==> Upgrading gnupg 
+  2.4.3 -> 2.4.4  
+ 
+==> Installing dependencies for gnupg: libunistring, libidn2, libnghttp2, unbound, libgpg-error, libksba, libusb, npth and openldap 
+==> Installing gnupg dependency: libunistring 
+==> Pouring libunistring-1.2.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libunistring/1.2: 59 files, 5MB 
+==> Installing gnupg dependency: libidn2 
+==> Pouring libidn2-2.3.7.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libidn2/2.3.7: 80 files, 1MB 
+==> Installing gnupg dependency: libnghttp2 
+==> Pouring libnghttp2-1.60.0.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libnghttp2/1.60.0: 13 files, 808.4KB 
+==> Installing gnupg dependency: unbound 
+==> Pouring unbound-1.19.1.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/unbound/1.19.1: 58 files, 5.8MB 
+==> Installing gnupg dependency: libgpg-error 
+==> Pouring libgpg-error-1.48.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libgpg-error/1.48: 49 files, 1.7MB 
+==> Installing gnupg dependency: libksba 
+==> Pouring libksba-1.6.6.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libksba/1.6.6: 18 files, 518.8KB 
+==> Installing gnupg dependency: libusb 
+==> Pouring libusb-1.0.27.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libusb/1.0.27: 22 files, 617.8KB 
+==> Installing gnupg dependency: npth 
+==> Pouring npth-1.7.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/npth/1.7: 12 files, 162.0KB 
+==> Installing gnupg dependency: openldap 
+==> Pouring openldap-2.6.7.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/openldap/2.6.7: 340 files, 7.8MB 
+==> Installing gnupg 
+==> Pouring gnupg-2.4.4.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/gnupg/2.4.4: 140 files, 14.3MB 
+==> Running `brew cleanup gnupg`... 
+Removing: /opt/homebrew/Cellar/gnupg/2.4.3... (140 files, 12.4MB) 
+==> Upgrading gradle 
+  8.5 -> 8.6  
+ 
+==> Pouring gradle-8.6.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/gradle/8.6: 21,200 files, 436.1MB 
+==> Running `brew cleanup gradle`... 
+Removing: /opt/homebrew/Cellar/gradle/8.5... (21,012 files, 433.4MB) 
+==> Upgrading pyenv 
+  2.3.35 -> 2.3.36  
+ 
+==> Pouring pyenv-2.3.36.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/pyenv/2.3.36: 1,158 files, 3.4MB 
+==> Running `brew cleanup pyenv`... 
+Removing: /opt/homebrew/Cellar/pyenv/2.3.35... (1,132 files, 3.4MB) 
+==> Checking for dependents of upgraded formulae... 
+==> Reinstalling 1 dependent with broken linkage from source: 
+node@16 
+Warning: node@16 has been deprecated because it is not supported upstream! 
+==> Fetching dependencies for node@16: c-ares, libuv and python-setuptools 
+==> Fetching c-ares 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/c-ares-1.27.0.arm64_sonoma.bottle.tar.gz 
+########################################################################################################################## 100.0%
+==> Fetching libuv 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/libuv-1.48.0.arm64_sonoma.bottle.tar.gz 
+########################################################################################################################## 100.0%
+==> Fetching python-setuptools 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/python-setuptools-69.1.1.arm64_sonoma.bottle.tar.gz 
+########################################################################################################################## 100.0%
+==> Fetching node@16 
+==> Downloading https://raw.githubusercontent.com/Homebrew/homebrew-core/c0fae9c65e8402b096970d9a240f7655b45bfd4e/Formula/n/node@
+-=O=-                                                                                                                     #  ##  
+ 
+ 
+ 
+curl: (35) Recv failure: Connection reset by peer                                                                                
+ 
+Error: Failed to download resource "node@16.rb" 
+Download failed: https://raw.githubusercontent.com/Homebrew/homebrew-core/c0fae9c65e8402b096970d9a240f7655b45bfd4e/Formula/n/node@16.rb 
+==> Caveats 
+==> llvm 
+To use the bundled libc++ please add the following LDFLAGS: 
+  LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++" 
+ 
+llvm is keg-only, which means it was not symlinked into /opt/homebrew, 
+because macOS already provides this software and installing another version in 
+parallel can cause all kinds of trouble. 
+ 
+If you need to have llvm first in your PATH, run: 
+  echo 'export PATH="/opt/homebrew/opt/llvm/bin:$PATH"' >> ~/.zshrc 
+ 
+For compilers to find llvm you may need to set: 
+  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib" 
+  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include" 
+==> openjdk@17 
+For the system Java wrappers to find this JDK, symlink it with 
+  sudo ln -sfn /opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-17.jdk 
+ 
+openjdk@17 is keg-only, which means it was not symlinked into /opt/homebrew, 
+because this is an alternate version of another formula. 
+ 
+If you need to have openjdk@17 first in your PATH, run: 
+  echo 'export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc 
+ 
+For compilers to find openjdk@17 you may need to set: 
+  export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include" 
+==> gradle@7 
+gradle@7 is keg-only, which means it was not symlinked into /opt/homebrew, 
+because this is an alternate version of another formula. 
+ 
+If you need to have gradle@7 first in your PATH, run: 
+  echo 'export PATH="/opt/homebrew/opt/gradle@7/bin:$PATH"' >> ~/.zshrc 
+(base) ➜  move git:(main)  
+(base) ➜  move git:(main)  
+(base) ➜  move git:(main)  
+(base) ➜  move git:(main)  
+(base) ➜  move git:(main) source ~/.profile 
+(base) ➜  move git:(main) cargo install --path language/tools/move-cli 
+zsh: command not found: cargo 
+(base) ➜  move git:(main) brew install rust                            
+==> Fetching dependencies for rust: libssh2 and libgit2 
+==> Fetching libssh2 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/libssh2-1.11.0_1.arm64_sonoma.bottle.tar.gz 
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/53c32b723e4da1c6945f73fd39ef3df065a96ecddc9fee42c1c00ea41238f712--libssh2-1.11.0_1.arm64_sonoma.bottle.tar.gz 
+==> Fetching libgit2 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/libgit2-1.7.2.arm64_sonoma.bottle.tar.gz 
+Already downloaded: /Users/leo/Library/Caches/Homebrew/downloads/c1d8f0dbbbf00f13f39b7d7e69d3735a08b3997ea2d51846a2de7d44079c8467--libgit2-1.7.2.arm64_sonoma.bottle.tar.gz 
+==> Fetching rust 
+==> Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/rust-1.76.0.arm64_sonoma.bottle.tar.gz 
+########################################################################################################################## 100.0%
+==> Installing dependencies for rust: libssh2 and libgit2 
+==> Installing rust dependency: libssh2 
+==> Pouring libssh2-1.11.0_1.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libssh2/1.11.0_1: 197 files, 1.2MB 
+==> Installing rust dependency: libgit2 
+==> Pouring libgit2-1.7.2.arm64_sonoma.bottle.tar.gz 
+🍺  /opt/homebrew/Cellar/libgit2/1.7.2: 104 files, 4.5MB 
+==> Installing rust 
+==> Pouring rust-1.76.0.arm64_sonoma.bottle.tar.gz 
+==> Caveats 
+zsh completions have been installed to: 
+  /opt/homebrew/share/zsh/site-functions 
+==> Summary 
+🍺  /opt/homebrew/Cellar/rust/1.76.0: 39,361 files, 879MB 
+==> Running `brew cleanup rust`... 
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP. 
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`). 
+==> Caveats 
+==> rust 
+zsh completions have been installed to: 
+  /opt/homebrew/share/zsh/site-functions 
+(base) ➜  move git:(main) cargo install --path language/tools/move-cli 
+  Installing move-cli v0.1.0 (/Users/leo/workspace/move/language/tools/move-cli) 
+    Updating crates.io index 
+ Downloading 284 crates                                                                                                         
+ 
+ 
+ 
+ 
+^C 
+(base) ➜  move git:(main) cargo install --path language/tools/move-cli 
+  Installing move-cli v0.1.0 (/Users/leo/workspace/move/language/tools/move-cli) 
+    Updating crates.io index 
+warning: spurious network error (3 tries remaining): [35] SSL connect error (Recv failure: Connection reset by peer) 
+warning: spurious network error (2 tries remaining): [35] SSL connect error (Recv failure: Connection reset by peer) 
+warning: spurious network error (1 tries remaining): [35] SSL connect error (Recv failure: Connection reset by peer) 
+^C     Fetch [==============>                  ] 0 complete; 1 pending                                                          
+(base) ➜  move git:(main) cargo install --path language/tools/move-cli 
+  Installing move-cli v0.1.0 (/Users/leo/workspace/move/language/tools/move-cli) 
+    Updating crates.io index 
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (failed to download any data for `Inflector v0.11.4` within 30s) 
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (download of `ahash v0.7.8` failed to transfer more than 10 bytes in 30s) 
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (failed to download any data for `aho-corasick v1.1.2` within 30s) 
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (download of `async-trait v0.1.77` failed to transfer more than 10 bytes in 30s) 
+  Downloaded atty v0.2.14 
+  Downloaded impl-codec v0.5.1 
+  Downloaded crunchy v0.2.2 
+  Downloaded unic-common v0.9.0 
+  Downloaded equivalent v1.0.1 
+  Downloaded try-lock v0.2.5 
+  Downloaded primitive-types v0.10.1 
+  Downloaded named-lock v0.2.0 
+  Downloaded better_typeid_derive v0.1.1 
+  Downloaded instant v0.1.12 
+  Downloaded sync_wrapper v0.1.2 
+  Downloaded num-traits v0.1.43 
+  Downloaded crypto-common v0.1.6 
+  Downloaded tower-service v0.3.2 
+  Downloaded byte-slice-cast v1.2.2 
+  Downloaded better_any v0.1.1 
+  Downloaded tinyvec_macros v0.1.1 
+  Downloaded phf_shared v0.11.2 
+  Downloaded fixed-hash v0.7.0 
+  Downloaded cfg-if v1.0.0 
+  Downloaded futures-io v0.3.30 
+  Downloaded block-buffer v0.9.0 
+  Downloaded futures-sink v0.3.30 
+  Downloaded stable_deref_trait v1.2.0 
+  Downloaded proc-macro-crate v1.3.1 
+  Downloaded itoa v1.0.10 
+  Downloaded lazy_static v0.2.11 
+  Downloaded Inflector v0.11.4 
+  Downloaded humansize v2.1.3 
+  Downloaded block-padding v0.2.1 
+  Downloaded form_urlencoded v1.2.1 
+  Downloaded num v0.4.1 
+  Downloaded slug v0.1.5 
+  Downloaded unic-char-range v0.9.0 
+  Downloaded codespan v0.11.1 
+  Downloaded funty v1.1.0 
+  Downloaded serde-value v0.7.0 
+  Downloaded cpufeatures v0.2.12 
+  Downloaded httpdate v1.0.3 
+  Downloaded variant_count v1.1.0 
+  Downloaded http-body v0.4.6 
+  Downloaded heck v0.3.3 
+  Downloaded chrono-tz-build v0.2.1 
+  Downloaded futures-task v0.3.30 
+  Downloaded proc-macro-error-attr v1.0.4 
+  Downloaded heck v0.4.1 
+  Downloaded strsim v0.10.0 
+  Downloaded fixedbitset v0.2.0 
+  Downloaded num-iter v0.1.44 
+  Downloaded tap v1.0.1 
+  Downloaded percent-encoding v2.3.1 
+  Downloaded lazy_static v1.4.0 
+  Downloaded keccak v0.1.5 
+  Downloaded autocfg v1.1.0 
+  Downloaded hex v0.4.3 
+  Downloaded static_assertions v1.1.0 
+  Downloaded fastrand v2.0.1 
+  Downloaded siphasher v0.3.11 
+  Downloaded futures-core v0.3.30 
+  Downloaded dirs-sys v0.3.7 
+  Downloaded dirs-next v2.0.0 
+  Downloaded toml_datetime v0.6.5 
+  Downloaded ref-cast v1.0.22 
+  Downloaded pest_generator v2.7.8 
+  Downloaded typed-arena v2.0.2 
+  Downloaded dirs-sys-next v0.1.2 
+  Downloaded thiserror-impl v1.0.57 
+  Downloaded tokio-macros v2.2.0 
+  Downloaded system-configuration-sys v0.5.0 
+  Downloaded same-file v1.0.6 
+  Downloaded unic-ucd-version v0.9.0 
+  Downloaded digest v0.10.7 
+  Downloaded slab v0.4.9 
+  Downloaded hyper-tls v0.5.0 
+  Downloaded directories v4.0.1 
+  Downloaded ed25519 v1.5.3 
+  Downloaded digest v0.9.0 
+  Downloaded termcolor v1.1.3 
+  Downloaded linked-hash-map v0.5.6 
+  Downloaded subtle v2.5.0 
+  Downloaded globwalk v0.8.1 
+  Downloaded impl-trait-for-tuples v0.2.2 
+  Downloaded fnv v1.0.7 
+  Downloaded block-buffer v0.10.4 
+  Downloaded fail v0.4.0 
+  Downloaded errno v0.3.8 
+  Downloaded generic-array v0.14.7 
+  Downloaded futures-executor v0.3.30 
+  Downloaded quote v1.0.35 
+  Downloaded rustc-hex v2.1.0 
+  Downloaded want v0.3.1 
+  Downloaded pin-utils v0.1.0 
+  Downloaded unic-char-property v0.9.0 
+  Downloaded ouroboros v0.9.5 
+  Downloaded signal-hook-registry v1.4.1 
+  Downloaded bitmaps v2.1.0 
+  Downloaded tint v1.0.1 
+  Downloaded mime v0.3.17 
+  Downloaded system-configuration v0.5.1 
+  Downloaded signature v1.6.4 
+  Downloaded fixedbitset v0.4.2 
+  Downloaded futures-macro v0.3.30 
+  Downloaded rand_xoshiro v0.6.0 
+  Downloaded paste v1.0.14 
+  Downloaded simplelog v0.9.0 
+  Downloaded signal-hook-mio v0.2.3 
+  Downloaded wyz v0.2.0 
+  Downloaded ref-cast-impl v1.0.22 
+  Downloaded either v1.10.0 
+  Downloaded rand_core v0.5.1 
+  Downloaded bitflags v1.3.2 
+  Downloaded thiserror v1.0.57 
+  Downloaded rust-ini v0.13.0 
+  Downloaded internment v0.5.6 
+  Downloaded byteorder v1.5.0 
+  Downloaded rand_core v0.6.4 
+  Downloaded cassowary v0.3.0 
+  Downloaded colored v2.1.0 
+  Downloaded version_check v0.9.4 
+  Downloaded security-framework-sys v2.9.1 
+  Downloaded rand_chacha v0.3.1 
+  Downloaded globset v0.4.14 
+  Downloaded num-rational v0.4.1 
+  Downloaded unicode-width v0.1.11 
+  Downloaded zeroize_derive v1.4.2 
+  Downloaded num_cpus v1.16.0 
+  Downloaded clap_lex v0.2.4 
+  Downloaded arrayvec v0.7.4 
+  Downloaded getrandom v0.1.16 
+  Downloaded bcs v0.1.6 
+  Downloaded opaque-debug v0.3.1 
+  Downloaded proc-macro-error v1.0.4 
+  Downloaded unic-ucd-segment v0.9.0 
+  Downloaded phf_generator v0.11.2 
+  Downloaded parity-scale-codec-derive v2.3.1 
+  Downloaded rand_chacha v0.2.2 
+  Downloaded scopeguard v1.2.0 
+  Downloaded num-complex v0.4.5 
+  Downloaded native-tls v0.2.11 
+  Downloaded lock_api v0.4.11 
+  Downloaded arrayvec v0.5.2 
+  Downloaded parking_lot_core v0.8.6 
+  Downloaded core-foundation v0.9.4 
+  Downloaded crossbeam-deque v0.8.5 
+  Downloaded anyhow v1.0.80 
+  Downloaded ordered-float v2.10.1 
+  Downloaded clap_derive v3.2.25 
+  Downloaded parking_lot_core v0.9.9 
+  Downloaded ppv-lite86 v0.2.17 
+  Downloaded serde v0.8.23 
+  Downloaded pretty v0.10.0 
+  Downloaded parking_lot v0.12.1 
+  Downloaded getrandom v0.2.12 
+  Downloaded os_str_bytes v6.6.1 
+  Downloaded ahash v0.7.8 
+  Downloaded log v0.4.21 
+  Downloaded parking_lot v0.11.2 
+  Downloaded pest_meta v2.7.8 
+  Downloaded pin-project-lite v0.2.13 
+  Downloaded config v0.11.0 
+  Downloaded core-foundation-sys v0.8.6 
+  Downloaded tokio-native-tls v0.3.1 
+  Downloaded async-trait v0.1.77 
+  Downloaded crossbeam-epoch v0.9.18 
+  Downloaded ryu v1.0.17 
+  Downloaded parity-scale-codec v2.3.1 
+  Downloaded pest_derive v2.7.8 
+  Downloaded indexmap v1.9.3 
+  Downloaded codespan-reporting v0.11.1 
+  Downloaded ignore v0.4.22 
+  Downloaded futures v0.3.30 
+  Downloaded proc-macro2 v1.0.78 
+  Downloaded ethnum v1.5.0 
+  Downloaded rayon-core v1.12.1 
+  Downloaded serde_derive v1.0.197 
+  Downloaded signal-hook v0.3.17 
+  Downloaded mio v0.7.14 
+  Downloaded parse-zoneinfo v0.3.0 
+  Downloaded base64 v0.21.7 
+  Downloaded url v2.5.0 
+  Downloaded ptree v0.4.0 
+  Downloaded serde v1.0.197 
+  Downloaded memchr v2.7.1 
+  Downloaded http v0.2.12 
+  Downloaded mio v0.8.11 
+  Downloaded serde_urlencoded v0.7.1 
+  Downloaded libm v0.2.8 
+  Downloaded phf_codegen v0.11.2 
+  Downloaded itertools v0.10.5 
+  Downloaded ipnet v2.9.0 
+  Downloaded iana-time-zone v0.1.60 
+  Downloaded pest v2.7.8 
+  Downloaded unicode-normalization v0.1.23 
+  Downloaded petgraph v0.5.1 
+  Downloaded h2 v0.3.24 
+  Downloaded nom v5.1.3 
+  Downloaded difference v2.0.0 
+  Downloaded unicode-segmentation v1.11.0 
+  Downloaded rayon v1.9.0 
+  Downloaded combine v4.6.6 
+  Downloaded futures-util v0.3.30 
+  Downloaded serde_json v1.0.114 
+  Downloaded reqwest v0.11.24 
+  Downloaded petgraph v0.6.4 
+  Downloaded clap v3.2.25 
+  Downloaded chrono v0.4.35 
+  Downloaded regex v1.10.3 
+  Downloaded regex-syntax v0.8.2 
+warning: spurious network error (3 tries remaining): [92] Stream error in the HTTP/2 framing layer (HTTP/2 stream 33 was not closed cleanly: PROTOCOL_ERROR (err 1)) 
+warning: spurious network error (3 tries remaining): [92] Stream error in the HTTP/2 framing layer (HTTP/2 stream 31 was not closed cleanly: PROTOCOL_ERROR (err 1)) 
+warning: spurious network error (3 tries remaining): [92] Stream error in the HTTP/2 framing layer (HTTP/2 stream 119 was not closed cleanly: PROTOCOL_ERROR (err 1)) 
+warning: spurious network error (3 tries remaining): [92] Stream error in the HTTP/2 framing layer (HTTP/2 stream 109 was not closed cleanly: PROTOCOL_ERROR (err 1)) 
+  Downloaded sha3 v0.9.1 
+  Downloaded serde-hjson v0.9.1 
+  Downloaded radium v0.6.2 
+  Downloaded serde_bytes v0.11.14 
+  Downloaded futures-channel v0.3.30 
+  Downloaded ed25519-dalek-fiat v0.1.0 
+  Downloaded dashmap v5.5.3 
+  Downloaded tempfile v3.10.1 
+  Downloaded smallvec v1.13.1 
+  Downloaded unic-segment v0.9.0 
+  Downloaded zeroize v1.7.0 
+  Downloaded httparse v1.8.0 
+  Downloaded sha2 v0.9.9 
+  Downloaded ouroboros_macro v0.9.5 
+  Downloaded rustls-pemfile v1.0.4 
+  Downloaded num-integer v0.1.46 
+  Downloaded uint v0.9.5 
+  Downloaded tracing-attributes v0.1.27 
+  Downloaded num-traits v0.2.18 
+  Downloaded whoami v1.5.0 
+  Downloaded phf v0.11.2 
+  Downloaded sized-chunks v0.6.5 
+  Downloaded ansi_term v0.12.1 
+  Downloaded bitflags v2.4.2 
+  Downloaded typenum v1.17.0 
+  Downloaded tinyvec v1.6.0 
+  Downloaded walkdir v2.5.0 
+  Downloaded sha2 v0.10.8 
+  Downloaded ucd-trie v0.1.6 
+  Downloaded once_cell v1.19.0 
+  Downloaded toml v0.5.11 
+  Downloaded serde-reflection v0.3.6 
+  Downloaded impl-serde v0.3.2 
+  Downloaded serde_yaml v0.8.26 
+  Downloaded textwrap v0.16.1 
+  Downloaded unicode-ident v1.0.12 
+  Downloaded socket2 v0.5.6 
+  Downloaded bytes v1.5.0 
+  Downloaded tracing-core v0.1.32 
+  Downloaded crossbeam-utils v0.8.19 
+  Downloaded yaml-rust v0.4.5 
+  Downloaded tracing v0.1.40 
+  Downloaded indexmap v2.2.5 
+  Downloaded rand v0.8.5 
+  Downloaded unicode-bidi v0.3.15 
+  Downloaded toml_edit v0.19.15 
+  Downloaded security-framework v2.9.2 
+  Downloaded hashbrown v0.12.3 
+  Downloaded tera v1.19.1 
+  Downloaded crossterm v0.22.1 
+  Downloaded toml_edit v0.14.4 
+  Downloaded num-bigint v0.4.4 
+  Downloaded crossterm v0.21.0 
+  Downloaded tokio-util v0.7.10 
+  Downloaded rand v0.7.3 
+  Downloaded im v15.1.0 
+  Downloaded tui v0.17.0 
+  Downloaded hashbrown v0.14.3 
+  Downloaded winnow v0.5.40 
+  Downloaded deunicode v1.4.3 
+  Downloaded bitvec v0.20.4 
+  Downloaded aho-corasick v1.1.2 
+  Downloaded hyper v0.14.28 
+ Downloading 13 crates, remaining bytes: 4.4 MB                                                                                 
+ 
+ 
+ 
+ 
+  Downloaded syn v1.0.109 
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (download of `syn v2.0.52` failed to transfer more than 10 bytes in 30s) 
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (failed to download any data for `idna v0.5.0` within 30s) 
+^Cownloading 12 crates, remaining bytes: 4.1 MB                                                                                 
+(base) ➜  move git:(main) cargo install --path language/tools/move-cli 
+  Installing move-cli v0.1.0 (/Users/leo/workspace/move/language/tools/move-cli) 
+    Updating crates.io index 
+  Downloaded syn v2.0.52 
+  Downloaded idna v0.5.0 
+  Downloaded bstr v1.9.1 
+  Downloaded rustix v0.38.31 
+  Downloaded encoding_rs v0.8.33 
+  Downloaded fiat-crypto v0.1.20 
+  Downloaded chrono-tz v0.8.6 
+  Downloaded tokio v1.36.0 
+  Downloaded curve25519-dalek-fiat v0.1.0 
+  Downloaded regex-automata v0.4.6 
+  Downloaded libc v0.2.153 
+  Downloaded lexical-core v0.7.6 
+  Downloaded 12 crates (6.9 MB) in 3.02s (largest was `encoding_rs` at 1.4 MB) 
+   Compiling proc-macro2 v1.0.78 
+   Compiling unicode-ident v1.0.12 
+   Compiling libc v0.2.153 
+   Compiling autocfg v1.1.0 
+   Compiling cfg-if v1.0.0 
+   Compiling serde v1.0.197 
+   Compiling version_check v0.9.4 
+   Compiling once_cell v1.19.0 
+   Compiling syn v1.0.109 
+   Compiling thiserror v1.0.57 
+   Compiling ppv-lite86 v0.2.17 
+   Compiling num-traits v0.2.18 
+   Compiling equivalent v1.0.1 
+   Compiling hashbrown v0.14.3 
+   Compiling static_assertions v1.1.0 
+   Compiling winnow v0.5.40 
+   Compiling indexmap v2.2.5 
+   Compiling toml_datetime v0.6.5 
+   Compiling radium v0.6.2 
+   Compiling byteorder v1.5.0 
+   Compiling toml_edit v0.19.15 
+   Compiling memchr v2.7.1 
+   Compiling proc-macro-crate v1.3.1 
+   Compiling num-bigint v0.4.4 
+   Compiling crunchy v0.2.2 
+   Compiling typenum v1.17.0 
+   Compiling wyz v0.2.0 
+   Compiling tap v1.0.1 
+   Compiling funty v1.1.0 
+   Compiling num-rational v0.4.1 
+   Compiling byte-slice-cast v1.2.2 
+   Compiling anyhow v1.0.80 
+   Compiling num-integer v0.1.46 
+   Compiling bitvec v0.20.4 
+   Compiling arrayvec v0.7.4 
+   Compiling getrandom v0.2.12 
+   Compiling rand_core v0.6.4 
+   Compiling quote v1.0.35 
+   Compiling rand_chacha v0.3.1 
+   Compiling syn v2.0.52 
+   Compiling rand v0.8.5 
+   Compiling ref-cast v1.0.22 
+   Compiling rustc-hex v2.1.0 
+   Compiling smallvec v1.13.1 
+   Compiling hex v0.4.3 
+   Compiling fixed-hash v0.7.0 
+   Compiling num-iter v0.1.44 
+   Compiling num-complex v0.4.5 
+   Compiling generic-array v0.14.7 
+   Compiling uint v0.9.5 
+   Compiling lock_api v0.4.11 
+   Compiling ethnum v1.5.0 
+   Compiling bitflags v1.3.2 
+   Compiling ahash v0.7.8 
+   Compiling scopeguard v1.2.0 
+   Compiling lazy_static v1.4.0 
+   Compiling num v0.4.1 
+   Compiling digest v0.9.0 
+   Compiling cpufeatures v0.2.12 
+   Compiling indexmap v1.9.3 
+   Compiling block-padding v0.2.1 
+   Compiling block-buffer v0.9.0 
+   Compiling opaque-debug v0.3.1 
+   Compiling hashbrown v0.12.3 
+   Compiling same-file v1.0.6 
+   Compiling parking_lot_core v0.9.9 
+   Compiling walkdir v2.5.0 
+   Compiling aho-corasick v1.1.2 
+   Compiling proc-macro-error-attr v1.0.4 
+   Compiling regex-syntax v0.8.2 
+   Compiling getrandom v0.1.16 
+   Compiling sha2 v0.9.9 
+   Compiling proc-macro-error v1.0.4 
+   Compiling fixedbitset v0.2.0 
+   Compiling petgraph v0.5.1 
+   Compiling serde_derive v1.0.197 
+   Compiling thiserror-impl v1.0.57 
+   Compiling ref-cast-impl v1.0.22 
+   Compiling regex-automata v0.4.6 
+   Compiling impl-trait-for-tuples v0.2.2 
+   Compiling parity-scale-codec-derive v2.3.1 
+   Compiling variant_count v1.1.0 
+   Compiling dirs-sys-next v0.1.2 
+   Compiling rustix v0.38.31 
+   Compiling dirs-next v2.0.0 
+   Compiling rand_core v0.5.1 
+   Compiling parking_lot v0.12.1 
+   Compiling errno v0.3.8 
+   Compiling termcolor v1.1.3 
+   Compiling difference v2.0.0 
+   Compiling bitflags v2.4.2 
+   Compiling rand_chacha v0.2.2 
+   Compiling unicode-width v0.1.11 
+   Compiling fastrand v2.0.1 
+   Compiling rand v0.7.3 
+   Compiling regex v1.10.3 
+   Compiling keccak v0.1.5 
+   Compiling pin-project-lite v0.2.13 
+   Compiling core-foundation-sys v0.8.6 
+   Compiling sha3 v0.9.1 
+   Compiling signal-hook-registry v1.4.1 
+   Compiling tempfile v3.10.1 
+   Compiling atty v0.2.14 
+   Compiling Inflector v0.11.4 
+   Compiling heck v0.4.1 
+   Compiling os_str_bytes v6.6.1 
+   Compiling move-borrow-graph v0.0.1 (/Users/leo/workspace/move/language/move-borrow-graph) 
+   Compiling clap_lex v0.2.4 
+   Compiling ouroboros_macro v0.9.5 
+   Compiling clap_derive v3.2.25 
+   Compiling textwrap v0.16.1 
+   Compiling strsim v0.10.0 
+   Compiling stable_deref_trait v1.2.0 
+   Compiling bytes v1.5.0 
+   Compiling ouroboros v0.9.5 
+   Compiling serde_bytes v0.11.14 
+   Compiling parity-scale-codec v2.3.1 
+   Compiling impl-serde v0.3.2 
+   Compiling bcs v0.1.6 
+   Compiling log v0.4.21 
+   Compiling move-symbol-pool v0.1.0 (/Users/leo/workspace/move/language/move-symbol-pool) 
+   Compiling codespan-reporting v0.11.1 
+   Compiling fail v0.4.0 
+   Compiling itoa v1.0.10 
+   Compiling colored v2.1.0 
+   Compiling either v1.10.0 
+   Compiling slab v0.4.9 
+   Compiling clap v3.2.25 
+   Compiling ryu v1.0.17 
+   Compiling futures-sink v0.3.30 
+   Compiling codespan v0.11.1 
+   Compiling futures-core v0.3.30 
+   Compiling itertools v0.10.5 
+   Compiling dashmap v5.5.3 
+   Compiling impl-codec v0.5.1 
+   Compiling siphasher v0.3.11 
+   Compiling primitive-types v0.10.1 
+   Compiling crossbeam-utils v0.8.19 
+   Compiling phf_shared v0.11.2 
+   Compiling internment v0.5.6 
+   Compiling futures-channel v0.3.30 
+   Compiling futures-macro v0.3.30 
+   Compiling tokio-macros v2.2.0 
+   Compiling num_cpus v1.16.0 
+   Compiling socket2 v0.5.6 
+   Compiling mio v0.8.11 
+   Compiling futures-io v0.3.30 
+   Compiling move-core-types v0.0.4 (/Users/leo/workspace/move/language/move-core/types) 
+   Compiling pin-utils v0.1.0 
+   Compiling futures-task v0.3.30 
+   Compiling futures-util v0.3.30 
+   Compiling tokio v1.36.0 
+   Compiling move-binary-format v0.0.3 (/Users/leo/workspace/move/language/move-binary-format) 
+   Compiling move-command-line-common v0.1.0 (/Users/leo/workspace/move/language/move-command-line-common) 
+   Compiling move-ir-types v0.1.0 (/Users/leo/workspace/move/language/move-ir/types) 
+   Compiling move-bytecode-source-map v0.1.0 (/Users/leo/workspace/move/language/move-ir-compiler/move-bytecode-source-map) 
+   Compiling move-bytecode-verifier v0.1.0 (/Users/leo/workspace/move/language/move-bytecode-verifier) 
+warning: unused doc comment 
+   --> language/move-bytecode-verifier/src/verifier.rs:187:13 
+    | 
+187 | /             /// General metering for the verifier. This defaults to a bound which should align 
+188 | |             /// with production, so all existing test cases apply it. 
+    | |_____________________________________________________________________^ 
+189 |               max_per_fun_meter_units: Some(1000 * 8000), 
+    |               ------------------------------------------ rustdoc does not generate documentation for expression fields 
+    | 
+    = help: use `//` for a plain comment 
+    = note: `#[warn(unused_doc_comments)]` on by default 
+ 
+   Compiling move-ir-to-bytecode-syntax v0.1.0 (/Users/leo/workspace/move/language/move-ir-compiler/move-ir-to-bytecode/syntax) 
+   Compiling move-ir-to-bytecode v0.1.0 (/Users/leo/workspace/move/language/move-ir-compiler/move-ir-to-bytecode) 
+   Compiling move-coverage v0.1.0 (/Users/leo/workspace/move/language/tools/move-coverage) 
+   Compiling move-compiler v0.0.1 (/Users/leo/workspace/move/language/move-compiler) 
+   Compiling tracing-attributes v0.1.27 
+   Compiling tracing-core v0.1.32 
+   Compiling serde_json v1.0.114 
+   Compiling parking_lot_core v0.8.6 
+   Compiling tracing v0.1.40 
+   Compiling crossbeam-epoch v0.9.18 
+   Compiling phf_generator v0.11.2 
+   Compiling instant v0.1.12 
+   Compiling percent-encoding v2.3.1 
+   Compiling arrayvec v0.5.2 
+   Compiling phf_codegen v0.11.2 
+   Compiling crossbeam-deque v0.8.5 
+   Compiling parse-zoneinfo v0.3.0 
+   Compiling phf v0.11.2 
+   Compiling bitmaps v2.1.0 
+   Compiling im v15.1.0 
+   Compiling paste v1.0.14 
+   Compiling ucd-trie v0.1.6 
+   Compiling move-disassembler v0.1.0 (/Users/leo/workspace/move/language/tools/move-disassembler) 
+   Compiling pest v2.7.8 
+   Compiling sized-chunks v0.6.5 
+   Compiling move-model v0.1.0 (/Users/leo/workspace/move/language/move-model) 
+warning: unused doc comment 
+  --> language/move-model/src/builder/exp_translator.rs:90:13 
+   | 
+90 |             /// Following flags used to translate pure Move functions. 
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+91 |             translating_fun_as_spec_fun: false, 
+   |             ---------------------------------- rustdoc does not generate documentation for expression fields 
+   | 
+   = help: use `//` for a plain comment 
+   = note: `#[warn(unused_doc_comments)]` on by default 
+ 
+   Compiling chrono-tz-build v0.2.1 
+   Compiling parking_lot v0.11.2 
+   Compiling move-read-write-set-types v0.0.3 (/Users/leo/workspace/move/language/tools/read-write-set/types) 
+   Compiling iana-time-zone v0.1.60 
+   Compiling rand_xoshiro v0.6.0 
+warning: `move-bytecode-verifier` (lib) generated 1 warning 
+   Compiling bstr v1.9.1 
+   Compiling unic-char-range v0.9.0 
+   Compiling unic-common v0.9.0 
+   Compiling unicode-segmentation v1.11.0 
+   Compiling libm v0.2.8 
+   Compiling unic-ucd-version v0.9.0 
+   Compiling globset v0.4.14 
+   Compiling unic-char-property v0.9.0 
+   Compiling chrono v0.4.35 
+   Compiling chrono-tz v0.8.6 
+   Compiling pest_meta v2.7.8 
+   Compiling core-foundation v0.9.4 
+   Compiling fnv v1.0.7 
+   Compiling signal-hook v0.3.17 
+   Compiling http v0.2.12 
+   Compiling move-stackless-bytecode v0.1.0 (/Users/leo/workspace/move/language/move-prover/bytecode) 
+   Compiling pest_generator v2.7.8 
+   Compiling ignore v0.4.22 
+warning: variable does not need to be mutable 
+   --> language/move-prover/bytecode/src/verification_analysis.rs:374:13 
+    | 
+374 |         let mut info = data 
+    |             ----^^^^ 
+    |             | 
+    |             help: remove this `mut` 
+    | 
+    = note: `#[warn(unused_mut)]` on by default 
+ 
+warning: variable does not need to be mutable 
+   --> language/move-prover/bytecode/src/verification_analysis_v2.rs:741:13 
+    | 
+741 |         let mut info = targets 
+    |             ----^^^^ 
+    |             | 
+    |             help: remove this `mut` 
+ 
+   Compiling unic-ucd-segment v0.9.0 
+   Compiling toml v0.5.11 
+   Compiling serde-reflection v0.3.6 
+   Compiling security-framework-sys v2.9.1 
+   Compiling zeroize_derive v1.4.2 
+   Compiling async-trait v0.1.77 
+   Compiling lexical-core v0.7.6 
+   Compiling httparse v1.8.0 
+   Compiling deunicode v1.4.3 
+   Compiling native-tls v0.2.11 
+   Compiling tinyvec_macros v0.1.1 
+   Compiling tinyvec v1.6.0 
+   Compiling slug v0.1.5 
+   Compiling zeroize v1.7.0 
+   Compiling security-framework v2.9.2 
+   Compiling move-bytecode-utils v0.1.0 (/Users/leo/workspace/move/language/tools/move-bytecode-utils) 
+   Compiling unic-segment v0.9.0 
+   Compiling humansize v2.1.3 
+   Compiling globwalk v0.8.1 
+   Compiling pest_derive v2.7.8 
+   Compiling heck v0.3.3 
+   Compiling tokio-util v0.7.10 
+   Compiling move-vm-types v0.1.0 (/Users/leo/workspace/move/language/move-vm/types) 
+   Compiling futures-executor v0.3.30 
+   Compiling mio v0.7.14 
+   Compiling better_typeid_derive v0.1.1 
+   Compiling nom v5.1.3 
+   Compiling subtle v2.5.0 
+   Compiling typed-arena v2.0.2 
+   Compiling linked-hash-map v0.5.6 
+   Compiling signature v1.6.4 
+   Compiling system-configuration-sys v0.5.0 
+   Compiling try-lock v0.2.5 
+   Compiling fiat-crypto v0.1.20 
+   Compiling better_any v0.1.1 
+   Compiling want v0.3.1 
+   Compiling yaml-rust v0.4.5 
+   Compiling ed25519 v1.5.3 
+   Compiling pretty v0.10.0 
+   Compiling signal-hook-mio v0.2.3 
+   Compiling tera v1.19.1 
+   Compiling futures v0.3.30 
+   Compiling h2 v0.3.24 
+   Compiling move-abigen v0.1.0 (/Users/leo/workspace/move/language/move-prover/move-abigen) 
+   Compiling curve25519-dalek-fiat v0.1.0 
+   Compiling unicode-normalization v0.1.23 
+   Compiling http-body v0.4.6 
+   Compiling move-docgen v0.1.0 (/Users/leo/workspace/move/language/move-prover/move-docgen) 
+   Compiling form_urlencoded v1.2.1 
+   Compiling num-traits v0.1.43 
+   Compiling httpdate v1.0.3 
+   Compiling unicode-bidi v0.3.15 
+   Compiling tower-service v0.3.2 
+   Compiling serde v0.8.23 
+   Compiling rayon-core v1.12.1 
+   Compiling hyper v0.14.28 
+   Compiling idna v0.5.0 
+   Compiling serde-hjson v0.9.1 
+   Compiling move-prover-boogie-backend v0.1.0 (/Users/leo/workspace/move/language/move-prover/boogie-backend) 
+   Compiling ed25519-dalek-fiat v0.1.0 
+   Compiling tokio-native-tls v0.3.1 
+   Compiling move-vm-runtime v0.1.0 (/Users/leo/workspace/move/language/move-vm/runtime) 
+   Compiling simplelog v0.9.0 
+   Compiling move-errmapgen v0.1.0 (/Users/leo/workspace/move/language/move-prover/move-errmapgen) 
+   Compiling dirs-sys v0.3.7 
+   Compiling ordered-float v2.10.1 
+   Compiling base64 v0.21.7 
+   Compiling lazy_static v0.2.11 
+   Compiling rust-ini v0.13.0 
+   Compiling fixedbitset v0.4.2 
+   Compiling petgraph v0.6.4 
+   Compiling config v0.11.0 
+   Compiling tint v1.0.1 
+   Compiling rustls-pemfile v1.0.4 
+   Compiling serde-value v0.7.0 
+   Compiling directories v4.0.1 
+   Compiling move-prover v0.1.0 (/Users/leo/workspace/move/language/move-prover) 
+   Compiling system-configuration v0.5.1 
+   Compiling hyper-tls v0.5.0 
+   Compiling bytecode-interpreter-crypto v0.1.0 (/Users/leo/workspace/move/language/move-prover/interpreter/crypto) 
+warning: unused import: `ed25519::signature::Signature` 
+  --> language/move-prover/interpreter/crypto/src/lib.rs:17:5 
+   | 
+17 |     ed25519::signature::Signature, PublicKey as Ed25519PublicKey, Signature as Ed25519Signature, 
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+   | 
+   = note: `#[warn(unused_imports)]` on by default 
+ 
+   Compiling url v2.5.0 
+warning: `bytecode-interpreter-crypto` (lib) generated 1 warning 
+   Compiling serde_urlencoded v0.7.1 
+   Compiling crossterm v0.22.1 
+   Compiling encoding_rs v0.8.33 
+warning: `move-model` (lib) generated 1 warning 
+   Compiling ipnet v2.9.0 
+   Compiling sync_wrapper v0.1.2 
+   Compiling ansi_term v0.12.1 
+   Compiling mime v0.3.17 
+   Compiling cassowary v0.3.0 
+   Compiling tui v0.17.0 
+   Compiling reqwest v0.11.24 
+   Compiling ptree v0.4.0 
+   Compiling rayon v1.9.0 
+   Compiling move-stackless-bytecode-interpreter v0.1.0 (/Users/leo/workspace/move/language/move-prover/interpreter) 
+   Compiling move-stdlib v0.1.1 (/Users/leo/workspace/move/language/move-stdlib) 
+   Compiling move-table-extension v0.1.0 (/Users/leo/workspace/move/language/extensions/move-table-extension) 
+   Compiling crossterm v0.21.0 
+   Compiling serde_yaml v0.8.26 
+   Compiling move-vm-test-utils v0.1.0 (/Users/leo/workspace/move/language/move-vm/test-utils) 
+   Compiling read-write-set-dynamic v0.1.0 (/Users/leo/workspace/move/language/tools/read-write-set/dynamic) 
+   Compiling move-resource-viewer v0.1.0 (/Users/leo/workspace/move/language/tools/move-resource-viewer) 
+   Compiling combine v4.6.6 
+   Compiling named-lock v0.2.0 
+   Compiling whoami v1.5.0 
+   Compiling move-unit-test v0.1.0 (/Users/leo/workspace/move/language/tools/move-unit-test) 
+   Compiling move-package v0.1.0 (/Users/leo/workspace/move/language/tools/move-package) 
+   Compiling toml_edit v0.14.4 
+warning: `move-stackless-bytecode` (lib) generated 2 warnings (run `cargo fix --lib -p move-stackless-bytecode` to apply 2 suggestions) 
+   Compiling read-write-set v0.1.0 (/Users/leo/workspace/move/language/tools/read-write-set) 
+   Compiling move-bytecode-viewer v0.1.0 (/Users/leo/workspace/move/language/tools/move-bytecode-viewer) 
+   Compiling move-cli v0.1.0 (/Users/leo/workspace/move/language/tools/move-cli) 
+warning: private item shadows public glob re-export 
+  --> language/tools/move-cli/src/sandbox/utils/mod.rs:5:5 
+   | 
+5  | use crate::sandbox::utils::on_disk_state_view::OnDiskStateView; 
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+   | 
+note: the name `OnDiskStateView` in the type namespace is supposed to be publicly re-exported here 
+  --> language/tools/move-cli/src/sandbox/utils/mod.rs:45:9 
+   | 
+45 | pub use on_disk_state_view::*; 
+   |         ^^^^^^^^^^^^^^^^^^^^^ 
+note: but the private item here shadows it 
+  --> language/tools/move-cli/src/sandbox/utils/mod.rs:5:5 
+   | 
+5  | use crate::sandbox::utils::on_disk_state_view::OnDiskStateView; 
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+   = note: `#[warn(hidden_glob_reexports)]` on by default 
+ 
+warning: `move-cli` (lib) generated 1 warning 
+    Finished release [optimized] target(s) in 2m 04s 
+  Installing /Users/leo/.cargo/bin/move 
+   Installed package `move-cli v0.1.0 (/Users/leo/workspace/move/language/tools/move-cli)` (executable `move`) 
+(base) ➜  move git:(main) move --help  
+move-cli 0.1.0 
+Diem Association <opensource@diem.com> 
+MoveCLI is the CLI that will be executed by the `move-cli` command The `cmd` argument is added here 
+rather than in `Move` to make it easier for other crates to extend `move-cli` 
+ 
+USAGE: 
+    move [OPTIONS] <SUBCOMMAND> 
+ 
+OPTIONS: 
+        --abi 
+            Generate ABIs for packages 
+ 
+        --arch <ARCHITECTURE> 
+             
+ 
+        --bytecode-version <BYTECODE_VERSION> 
+            Bytecode version to compile move code 
+ 
+    -d, --dev 
+            Compile in 'dev' mode. The 'dev-addresses' and 'dev-dependencies' fields will be used if 
+            this flag is set. This flag is useful for development of packages that expose named 
+            addresses that are not set to a specific value 
+ 
+        --doc 
+            Generate documentation for packages 
+ 
+        --fetch-deps-only 
+            Only fetch dependency repos to MOVE_HOME 
+ 
+        --force 
+            Force recompilation of all packages 
+ 
+    -h, --help 
+            Print help information 
+ 
+        --install-dir <INSTALL_DIR> 
+            Installation directory for compiled artifacts. Defaults to current directory 
+ 
+    -p, --path <PACKAGE_PATH> 
+            Path to a package which the command should be run with respect to 
+ 
+        --skip-fetch-latest-git-deps 
+            Skip fetching latest git dependencies 
+ 
+        --test 
+            Compile in 'test' mode. The 'dev-addresses' and 'dev-dependencies' fields will be used 
+            along with any code in the 'tests' directory 
+ 
+    -v 
+            Print additional diagnostics if available 
+ 
+    -V, --version 
+            Print version information 
+ 
+SUBCOMMANDS: 
+    build           Build the package at `path`. If no path is provided defaults to current 
+                        directory 
+    coverage        Inspect test coverage for this package. A previous test run with the 
+                        `--coverage` flag must have previously been run 
+    disassemble     Disassemble the Move bytecode pointed to 
+    docgen          Generate javadoc style documentation for Move packages 
+    errmap          Generate error map for the package and its dependencies at `path` for use by 
+                        the Move explanation tool 
+    experimental    (Experimental) Run static analyses on Move source or bytecode 
+    help            Print this message or the help of the given subcommand(s) 
+    info            Print address information 
+    new             Create a new Move package with name `name` at `path`. If `path` is not 
+                        provided the package will be created in the directory `name` 
+    prove           Run the Move Prover on the package at `path`. If no path is provided 
+                        defaults to current directory. Use `.. prove .. -- <options>` to pass on 
+                        options to the prover 
+    sandbox         Execute a sandbox command 
+    test            Run Move unit tests in this package 
+(base) ➜  move git:(main)  

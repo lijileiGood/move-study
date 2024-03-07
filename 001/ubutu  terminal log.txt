@@ -1,0 +1,138 @@
+
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 4.15.0-177-generic x86_64)
+
+root@aliyun:~# git clone https://github.com/move-language/move.git
+Cloning into 'move'...
+remote: Enumerating objects: 225182, done.
+remote: Counting objects: 100% (225182/225182), done.
+remote: Compressing objects: 100% (62384/62384), done.
+remote: Total 225182 (delta 158407), reused 224703 (delta 158295), pack-reused 0
+Receiving objects: 100% (225182/225182), 83.97 MiB | 12.98 MiB/s, done.
+Resolving deltas: 100% (158407/158407), done.
+root@aliyun:~# cd move/
+root@aliyun:~/move# ./scripts/dev_setup.sh -ypt
+Welcome to Move!
+
+This script will download and install the necessary dependencies needed to
+build and run Move.
+
+Based on your selection, these tools will be included:
+Build tools (since -t or no option was provided):
+  * Rust (and the necessary components, e.g. rust-fmt, clippy)
+  * CMake
+  * Clang
+  * pkg-config
+  * libssl-dev
+  * if linux, gcc-powerpc-linux-gnu
+  * NodeJS / NPM
+Move prover tools (since -y was provided):
+  * z3
+  * cvc5
+  * dotnet
+  * boogie
+Moreover, ~/.profile will be updated (since -p was provided).
+If you'd prefer to install these dependencies yourself, please exit this script
+now with Ctrl-C.
+Proceed with installing necessary dependencies? (y/N) > y
+Updating apt-get......
+Hit:1 http://mirrors.cloud.aliyuncs.com/ubuntu bionic InRelease
+Get:2 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-backports InRelease [83.3 kB]
+Get:4 https://mirrors.aliyun.com/docker-ce/linux/ubuntu bionic InRelease [64.4 kB]
+Get:5 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:6 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/main Sources [546 kB]
+Get:7 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/main i386 Packages [1,665 kB]
+Get:8 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/main amd64 Packages [3,045 kB]
+Get:9 https://artifacts.elastic.co/packages/8.x/apt stable InRelease [10.4 kB]
+Get:10 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/main Translation-en [554 kB]
+Get:11 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/universe amd64 Packages [1,915 kB]
+Get:12 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/universe i386 Packages [1,663 kB]
+Ign:13 https://artifacts.elastic.co/packages/7.16.2/apt stable InRelease
+Get:14 https://artifacts.elastic.co/packages/7.x/apt stable InRelease [13.6 kB]
+Err:15 https://artifacts.elastic.co/packages/7.16.2/apt stable Release
+  404  Not Found [IP: 34.120.127.130 443]
+Get:16 https://artifacts.elastic.co/packages/8.x/apt stable/main amd64 Packages [86.5 kB]
+Get:17 https://artifacts.elastic.co/packages/7.x/apt stable/main i386 Packages [89.0 kB]
+Get:18 https://artifacts.elastic.co/packages/7.x/apt stable/main amd64 Packages [125 kB]
+Reading package lists... Done
+E: The repository 'https://artifacts.elastic.co/packages/7.16.2/apt stable Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+root@aliyun:~/move# source ~/.profile
+root@aliyun:~/move# cargo install --path language/tools/move-cli
+
+Command 'cargo' not found, but can be installed with:
+
+apt install cargo
+
+root@aliyun:~/move# apt install cargo
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  libssh2-1 libstd-rust-1.65 libstd-rust-dev rustc
+Suggested packages:
+  cargo-doc llvm-14 lld-14 clang-14
+The following NEW packages will be installed:
+  cargo libssh2-1 libstd-rust-1.65 libstd-rust-dev rustc
+0 upgraded, 5 newly installed, 0 to remove and 138 not upgraded.
+Need to get 84.3 MB of archives.
+After this operation, 380 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/universe amd64 libssh2-1 amd64 1.8.0-1ubuntu0.1 [73.1 kB]
+Get:2 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/universe amd64 libstd-rust-1.65 amd64 1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04 [40.6 MB]
+Get:3 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/universe amd64 libstd-rust-dev amd64 1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04 [36.9 MB]
+Get:4 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/universe amd64 rustc amd64 1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04 [2,969 kB]
+Get:5 http://mirrors.cloud.aliyuncs.com/ubuntu bionic-updates/universe amd64 cargo amd64 0.66.0+ds0ubuntu0.libgit2-0ubuntu0.18.04 [3,755 kB]
+Fetched 84.3 MB in 9s (9,545 kB/s)
+Selecting previously unselected package libssh2-1:amd64.
+(Reading database ... 163730 files and directories currently installed.)
+Preparing to unpack .../libssh2-1_1.8.0-1ubuntu0.1_amd64.deb ...
+Unpacking libssh2-1:amd64 (1.8.0-1ubuntu0.1) ...
+Selecting previously unselected package libstd-rust-1.65:amd64.
+Preparing to unpack .../libstd-rust-1.65_1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04_amd64.deb ...
+Unpacking libstd-rust-1.65:amd64 (1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04) ...
+Selecting previously unselected package libstd-rust-dev:amd64.
+Preparing to unpack .../libstd-rust-dev_1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04_amd64.deb ...
+Unpacking libstd-rust-dev:amd64 (1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04) ...
+Selecting previously unselected package rustc.
+Preparing to unpack .../rustc_1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04_amd64.deb ...
+Unpacking rustc (1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04) ...
+Selecting previously unselected package cargo.
+Preparing to unpack .../cargo_0.66.0+ds0ubuntu0.libgit2-0ubuntu0.18.04_amd64.deb ...
+Unpacking cargo (0.66.0+ds0ubuntu0.libgit2-0ubuntu0.18.04) ...
+Setting up libstd-rust-1.65:amd64 (1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04) ...
+Setting up libstd-rust-dev:amd64 (1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04) ...
+Setting up rustc (1.65.0+dfsg0ubuntu1~llvm2-0ubuntu0.18.04) ...
+Setting up libssh2-1:amd64 (1.8.0-1ubuntu0.1) ...
+Setting up cargo (0.66.0+ds0ubuntu0.libgit2-0ubuntu0.18.04) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+root@aliyun:~/move# move --help
+
+Command 'move' not found, did you mean:
+
+  command 'lmove' from deb suck
+  command 'jove' from deb jove
+  command 'more' from deb util-linux
+  command 'fmove' from deb embassy-phylip
+  command 'mmove' from deb mtools
+  command 'love' from deb love
+
+Try: apt install <deb name>
+
+root@aliyun:~/move# source ~/.profile
+root@aliyun:~/move# move --help
+
+Command 'move' not found, did you mean:
+
+  command 'more' from deb util-linux
+  command 'jove' from deb jove
+  command 'mmove' from deb mtools
+  command 'lmove' from deb suck
+  command 'fmove' from deb embassy-phylip
+  command 'love' from deb love
+
+Try: apt install <deb name>
+
+root@aliyun:~/move#
